@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "copy:env:win": "copy DeliverUS-Backend\\.env.example DeliverUS-Backend\\.env && copy DeliverUS-Frontend-Owner\\.env.example DeliverUS-Frontend-Owner\\.env",
+    "copy:env:bash": "cp DeliverUS-Backend/.env.example DeliverUS-Backend/.env &&  cp DeliverUS-Frontend-Owner/.env.example DeliverUS-Frontend-Owner/.env",
+    "install:backend": "npm install && cd DeliverUS-Backend && npm install",
+    "install:frontend": "cd DeliverUS-Frontend-Owner && npm install",
+    "migrate:backend": "cd DeliverUS-Backend && npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "start:backend": "cd DeliverUS-Backend && nodemon --ignore ./example_api_client/ backend.js",
+    "start:frontend": "cd DeliverUS-Frontend-Owner && npx cross-env NODE_OPTIONS=--openssl-legacy-provider expo start",
+    "install:all:win": "npm run copy:env:win && npm run install:backend && npm run migrate:backend && npm run install:frontend",
+    "install:all:bash": "npm run copy:env:bash && npm run install:backend && npm run migrate:backend && npm run install:frontend"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.22",
+    "react-native-gesture-handler": "^2.12.0"
+  }
+}

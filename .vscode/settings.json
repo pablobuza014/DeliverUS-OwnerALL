@@ -1,0 +1,13 @@
+{
+  "thunder-client.workspaceRelativePath": "./DeliverUS-Backend/example_api_client",
+  "thunder-client.customLocation": "./DeliverUS-Backend/example_api_client",
+  "thunder-client.saveToWorkspace": true,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript"
+  ]
+}

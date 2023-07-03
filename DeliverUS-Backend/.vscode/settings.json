@@ -1,0 +1,13 @@
+{
+    "thunder-client.workspaceRelativePath": "./example_api_client",
+    "thunder-client.customLocation": "./example_api_client",
+    "thunder-client.loadFromProject": true,
+    "thunder-client.enableSaveOption": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      },
+	"thunder-client.saveToWorkspace": true
+}

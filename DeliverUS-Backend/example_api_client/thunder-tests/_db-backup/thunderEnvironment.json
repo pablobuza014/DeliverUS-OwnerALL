@@ -1,0 +1,60 @@
+[
+  {
+    "_id": "3ab313eb-49bf-46c6-983b-db57b84b201f",
+    "name": "DeliverUS",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2021-07-24T16:26:46.306Z",
+    "modified": "2022-05-18T12:21:54.295Z",
+    "data": [
+      {
+        "name": "base_url",
+        "value": "http://localhost:3000"
+      },
+      {
+        "name": "token",
+        "value": "4bde5a4b4fbf55ec1f9ba85a451ebff114cc9e86"
+      },
+      {
+        "name": "last_created_restaurant",
+        "value": "10"
+      },
+      {
+        "name": "last_created_order",
+        "value": "41"
+      },
+      {
+        "name": "last_created_product",
+        "value": "1404"
+      },
+      {
+        "name": "token_customer",
+        "value": "203a64be44154b23dc56515f49079c6e40ffc05d"
+      },
+      {
+        "name": "customer_password",
+        "value": "Secr3t!"
+      },
+      {
+        "name": "customerToken",
+        "value": "cdfe5331b658e0b90363173b3bf6668a4b754eae"
+      },
+      {
+        "name": "customerEmail",
+        "value": "emard.ba1a9e09cbbd@yahoo.com"
+      },
+      {
+        "name": "customerId",
+        "value": "7"
+      },
+      {
+        "name": "ownerToken",
+        "value": "6b3b5bcae896d289b20a29779dfaef60777b19e2"
+      },
+      {
+        "name": "orderAddress",
+        "value": "Fake address 10, 5A"
+      }
+    ]
+  }
+]
