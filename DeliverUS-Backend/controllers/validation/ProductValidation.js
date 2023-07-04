@@ -105,7 +105,7 @@ module.exports = {
     check('price').exists().isFloat({ min: 0 }).toFloat(),
     check('order').default(null).optional({ nullable: true }).isInt().toInt(),
     check('productCategoryId').exists().isInt({ min: 1 }).toInt(),
-    check('restaurantId').not().exists(),
+    check('restaurantId').exists(),
     check('availability').optional().isBoolean().toBoolean(),
     check('highlight').custom(checkOneOwnerFiveHighlightProducts).withMessage('You can only highlight five products at the same time'),
     check('promoted').custom(oneRestaurantOnePromotedProduct).withMessage('You can only promote one restaurant at the same time'),
