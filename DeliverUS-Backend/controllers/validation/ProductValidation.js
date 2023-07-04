@@ -8,8 +8,8 @@ const maxFileSize = 2000000 // around 2Mb
 const checkOneOwnerFiveHighlightProducts = async (highlightValue, { req }) => {
   if (highlightValue) {
     try {
-      const highlightedProducts = await Product.findAll({ where: { restaurantId: req.body.restaurantId, highlight: true } })
-      if (highlightedProducts.length !== 5) {
+      const highlightedProducts = await Product.count({ where: { restaurantId: req.body.restaurantId, highlight: true } })
+      if (highlightedProducts > 4) {
         return Promise.reject(new Error('You can only highlight five products at the same time'))
       }
     } catch (err) {
@@ -19,24 +19,18 @@ const checkOneOwnerFiveHighlightProducts = async (highlightValue, { req }) => {
   return Promise.resolve('ok')
 }
 
-const oneRestaurantOnePromotedProduct = async (value, { req }) => {
-  try {
-    const products = await Product.findAll({
-      where: {
-        restaurantId: req.body.restaurantId
+const oneRestaurantOnePromotedProduct = async (promotedValue, { req }) => {
+  if (promotedValue) {
+    try {
+      const promotedProducts = await Product.count({ where: { restaurantId: req.body.restaurantId, promoted: true } })
+      if (promotedProducts > 0) {
+        return Promise.reject(new Error('You can only promoted one product at the same time'))
       }
-    })
-    if (value) {
-      for (let i = 0; i < products.length; i++) {
-        if (products[i].promoted) {
-          return Promise.reject(new Error('You can only promote one product at a time'))
-        }
-      }
+    } catch (err) {
+      return Promise.reject(new Error(err))
     }
-    return Promise.resolve()
-  } catch (err) {
-    return Promise.reject(new Error(err))
   }
+  return Promise.resolve('ok')
 }
 
 const checkRestaurantExists = async (value, { req }) => {
@@ -89,12 +83,8 @@ module.exports = {
     check('restaurantId').exists().isInt({ min: 1 }).toInt(),
     check('restaurantId').custom(checkRestaurantExists),
     check('availability').optional().isBoolean().toBoolean(),
-    check('highlight').custom(async (value, { req }) => {
-      return checkOneOwnerFiveHighlightProducts(value, req)
-    }).withMessage('You can only highlight five products at the same time'),
-    check('promoted').custom(async (value, { req }) => {
-      return oneRestaurantOnePromotedProduct(value, req)
-    }).withMessage('You can only promote one restaurant at the same time'),
+    check('highlight').custom(checkOneOwnerFiveHighlightProducts).withMessage('You can only highlight five products at the same time'),
+    check('promoted').custom(oneRestaurantOnePromotedProduct).withMessage('You can only promote one restaurant at the same time'),
     check('image').custom((value, { req }) => {
       return checkFileIsImage(req, 'image')
     }).withMessage('Please upload an image with format (jpeg, png).'),
@@ -117,12 +107,8 @@ module.exports = {
     check('productCategoryId').exists().isInt({ min: 1 }).toInt(),
     check('restaurantId').not().exists(),
     check('availability').optional().isBoolean().toBoolean(),
-    check('highlight').custom(async (value, { req }) => {
-      return checkOneOwnerFiveHighlightProducts(value, req)
-    }).withMessage('You can only highlight five products at the same time'),
-    check('promoted').custom(async (value, { req }) => {
-      return oneRestaurantOnePromotedProduct(value, req)
-    }).withMessage('You can only promote one restaurant at the same time'),
+    check('highlight').custom(checkOneOwnerFiveHighlightProducts).withMessage('You can only highlight five products at the same time'),
+    check('promoted').custom(oneRestaurantOnePromotedProduct).withMessage('You can only promote one restaurant at the same time'),
     check('image').custom((value, { req }) => {
       return checkFileIsImage(req, 'image')
     }).withMessage('Please upload an image with format (jpeg, png).'),

@@ -21,7 +21,7 @@ export default function EditProductScreen ({ navigation, route }) {
   const [backendErrors, setBackendErrors] = useState()
   const [product, setProduct] = useState({})
 
-  const [initialProductValues, setInitialProductValues] = useState({ name: null, highlight: false, promoted: false, Fats: 25.00, Proteins: 50.00, Carbohydrates: 25.00, description: null, price: null, order: null, productCategoryId: null, availability: null, image: null })
+  const [initialProductValues, setInitialProductValues] = useState({ name: null, highlight: false, promoted: false, Fats: 25.00, Proteins: 50.00, Carbohydrates: 25.00, description: null, price: null, order: null, restaurantId: route.params.id, productCategoryId: null, availability: null, image: null })
   const validationSchema = yup.object().shape({
     name: yup
       .string()
