@@ -7,6 +7,8 @@ import EditRestaurantScreen from './EditRestaurantScreen'
 import RestaurantDetailScreen from './RestaurantDetailScreen'
 import RestaurantsScreen from './RestaurantsScreen'
 import CreateRestaurantCategoryScreen from './CreateRestaurantCategoryScreen'
+import ConfirmOrderScreen from '../orders/ConfirmOrderScreen'
+import OrdersScreen from '../orders/OrdersScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -55,6 +57,18 @@ export default function RestaurantsStack () {
         options={{
           title: 'Create Restaurant Category'
         }} />
+        <Stack.Screen
+        name='ConfirmOrderScreen'
+        component={ConfirmOrderScreen}
+        option={{
+          title: 'Confirm Order'
+        }}/>
+      <Stack.Screen
+        name='OrdersScreen'
+        component={OrdersScreen}
+        option={{
+          title: 'My Orders'
+        }}/>
     </Stack.Navigator>
   )
 }

@@ -131,7 +131,7 @@ export default function EditProductScreen ({ navigation, route }) {
         style: GlobalStyles.flashStyle,
         titleStyle: GlobalStyles.flashTextStyle
       })
-      navigation.navigate('RestaurantDetailScreen', { id: update.restaurantId })
+      navigation.navigate('RestaurantDetailScreen', { id: updatedProduct.restaurantId })
     } catch (error) {
       console.log(error)
       setBackendErrors(error.errors)

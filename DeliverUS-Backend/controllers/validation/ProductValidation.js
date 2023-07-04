@@ -19,18 +19,24 @@ const checkOneOwnerFiveHighlightProducts = async (highlightValue, { req }) => {
   return Promise.resolve('ok')
 }
 
-const oneRestaurantOnePromotedProduct = async (promotedValue, { req }) => {
-  if (promotedValue) {
-    try {
-      const promotedProducts = await Product.findAll({ where: { restaurantId: req.body.restaurantId, promoted: true } })
-      if (promotedProducts.length !== 1) {
-        return Promise.reject(new Error('You can only promote one product at a time'))
+const oneRestaurantOnePromotedProduct = async (value, { req }) => {
+  try {
+    const products = await Product.findAll({
+      where: {
+        restaurantId: req.body.restaurantId
       }
-    } catch (err) {
-      return Promise.reject(new Error(err))
+    })
+    if (value) {
+      for (let i = 0; i < products.length; i++) {
+        if (products[i].promoted) {
+          return Promise.reject(new Error('You can only promote one product at a time'))
+        }
+      }
     }
+    return Promise.resolve()
+  } catch (err) {
+    return Promise.reject(new Error(err))
   }
-  return Promise.resolve('ok')
 }
 
 const checkRestaurantExists = async (value, { req }) => {
@@ -44,9 +50,38 @@ const checkRestaurantExists = async (value, { req }) => {
   }
 }
 
+const checkProductHyperCaloric = async (req, res) => {
+  try {
+    if (req.body.Fats * 9 + req.body.Proteins * 4 + req.body.Carbohydrates * 4 > 1000.00) {
+      return Promise.reject(new Error('This product is hypercaloric'))
+    } else { return Promise.resolve() }
+  } catch (err) {
+    return Promise.reject(new Error(err))
+  }
+}
+
+const check100Grams = async (req, res) => {
+  const Fats = parseFloat(req.body.Fats)
+  const Proteins = parseFloat(req.body.Proteins)
+  const Carbohydrates = parseFloat(req.body.Carbohydrates)
+  try {
+    if (Fats < 0 || Proteins < 0 || Carbohydrates < 0 || (Fats + Proteins + Carbohydrates) !== 100.0) {
+      return Promise.reject(new Error('Remember, the sum of grams of Fats, Proteins and Carbohydrates must be 100'))
+    } else { return Promise.resolve() }
+  } catch (err) {
+    return Promise.reject(new Error(err))
+  }
+}
+
 module.exports = {
   create: [
     check('name').exists().isString().isLength({ min: 1, max: 255 }).trim(),
+    check('').custom(async (value, { req, res }) => {
+      return check100Grams(req, res)
+    }).withMessage('Remember, the sum of grams of Fats, Proteins and Carbohydrates must be 100'),
+    check('').custom(async (value, { req, res }) => {
+      return checkProductHyperCaloric(req, res)
+    }).withMessage('This product is hypercaloric'),
     check('description').optional({ checkNull: true, checkFalsy: true }).isString().isLength({ min: 1 }).trim(),
     check('price').exists().isFloat({ min: 0 }).toFloat(),
     check('order').default(null).optional({ nullable: true }).isInt().toInt(),
@@ -70,6 +105,12 @@ module.exports = {
 
   update: [
     check('name').exists().isString().isLength({ min: 1, max: 255 }).trim(),
+    check('').custom(async (value, { req, res }) => {
+      return check100Grams(req, res)
+    }).withMessage('Remember, the sum of grams of Fats, Proteins and Carbohydrates must be 100'),
+    check('').custom(async (value, { req, res }) => {
+      return checkProductHyperCaloric(req, res)
+    }).withMessage('This product is hypercaloric'),
     check('description').optional({ checkNull: true, checkFalsy: true }).isString().isLength({ min: 1 }).trim(),
     check('price').exists().isFloat({ min: 0 }).toFloat(),
     check('order').default(null).optional({ nullable: true }).isInt().toInt(),

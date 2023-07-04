@@ -28,4 +28,8 @@ function promote (id) {
   return patch(`products/${id}/promote`)
 }
 
-export { getDetail, getProductCategories, create, update, remove, highlight, promote }
+function getPopular () {
+  return get('products/popular')
+}
+
+export { getDetail, getProductCategories, create, update, remove, highlight, promote, getPopular }

@@ -25,8 +25,6 @@ module.exports = (options) => {
       middlewares.isLoggedIn,
       middlewares.hasRole('owner'),
       upload,
-      middlewares.checkProductHyperCaloric, // Las comprobaciones de gramos y calorías deben ser comprobadas antes de crear el producto.
-      middlewares.check100Grams,
       ProductValidation.create,
       middlewares.handleValidation,
       middlewares.checkProductRestaurantOwnership,
@@ -46,8 +44,6 @@ module.exports = (options) => {
       upload,
       middlewares.checkEntityExists(Product, 'productId'),
       middlewares.checkProductOwnership,
-      middlewares.checkProductHyperCaloric, // Las comprobaciones de gramos y calorías deben ser comprobadas antes de actualizar el producto.
-      middlewares.check100Grams,
       ProductValidation.update,
       middlewares.handleValidation,
       ProductController.update

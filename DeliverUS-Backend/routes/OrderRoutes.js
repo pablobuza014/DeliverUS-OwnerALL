@@ -10,6 +10,20 @@ module.exports = (options) => {
   // TODO: Include routes for:
   // 1. Retrieving orders from current logged-in customer
   // 2. Creating a new order (only customers can create new orders)
+  app.route('/orders')
+    .get(
+      middlewares.isLoggedIn,
+      middlewares.hasRole('customer'),
+      OrderController.indexCustomer
+    )
+    .post(
+      middlewares.isLoggedIn,
+      middlewares.hasRole('customer'),
+      OrderValidation.create,
+      middlewares.handleValidation,
+      OrderController.create
+    )
+  //
 
   app.route('/orders/:orderId/confirm')
     .patch(
@@ -49,5 +63,24 @@ module.exports = (options) => {
       middlewares.isLoggedIn,
       middlewares.checkEntityExists(Order, 'orderId'),
       middlewares.checkOrderVisible,
-      OrderController.show)
+      OrderController.show
+    )
+    .put(
+      middlewares.isLoggedIn,
+      middlewares.hasRole('customer'),
+      middlewares.checkEntityExists(Order, 'orderId'),
+      middlewares.checkOrderCustomer,
+      OrderValidation.update,
+      middlewares.handleValidation,
+      OrderController.update
+    )
+    .delete(
+      middlewares.isLoggedIn,
+      middlewares.hasRole('customer'),
+      middlewares.checkEntityExists(Order, 'orderId'),
+      middlewares.checkOrderCustomer,
+      OrderValidation.destroy,
+      middlewares.handleValidation,
+      OrderController.destroy
+    )
 }

@@ -59,7 +59,7 @@ exports.update = async function (req, res) {
   try {
     await Product.update(req.body, { where: { id: req.params.productId } })
     const updatedProduct = await Product.findByPk(req.params.productId)
-    await updateEconomicRestaurants(req.body.restaurantId)
+    await updateEconomicRestaurants(updatedProduct.restaurantId)
     res.json(updatedProduct)
   } catch (err) {
     res.status(500).send(err)
