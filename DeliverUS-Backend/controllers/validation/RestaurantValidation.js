@@ -48,11 +48,7 @@ module.exports = {
         return true
       }).withMessage('Restaurant discount codes cannot repeat among restaurants of the same owner.'),
     check('restaurantCategoryId').exists({ checkNull: true }).isInt({ min: 1 }).toInt(),
-    check('promoted')
-      .custom(async (value, { req }) => {
-        return oneOwnerOnePromotedRestaurant(req.user.id, value)
-      })
-      .withMessage('You can only promote one restaurant at a time'),
+    check('promoted').custom(oneOwnerOnePromotedRestaurant).withMessage('You can only promote one restaurant at a time'),
     check('userId').not().exists(),
     check('heroImage').custom((value, { req }) => {
       return checkFileIsImage(req, 'heroImage')
@@ -87,11 +83,7 @@ module.exports = {
         return true
       }).withMessage('Restaurant discount codes cannot repeat among restaurants of the same owner.'),
     check('restaurantCategoryId').exists({ checkNull: true }).isInt({ min: 1 }).toInt(),
-    check('promoted')
-      .custom(async (value, { req }) => {
-        return oneOwnerOnePromotedRestaurant(req.user.id, value)
-      })
-      .withMessage('You can only promote one restaurant at a time'),
+    check('promoted').custom(oneOwnerOnePromotedRestaurant).withMessage('You can only promote one restaurant at a time'),
     check('userId').not().exists(),
     check('heroImage').custom((value, { req }) => {
       return checkFileIsImage(req, 'heroImage')

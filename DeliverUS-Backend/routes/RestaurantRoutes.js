@@ -44,7 +44,7 @@ module.exports = (options) => {
       middlewares.hasRole('owner'),
       middlewares.checkEntityExists(Restaurant, 'restaurantId'),
       middlewares.checkRestaurantOwnership,
-      upload,
+      upload, // Upload se indica ante la necesidad de adjuntar contenido.
       RestaurantValidation.update,
       middlewares.handleValidation,
       RestaurantController.update)

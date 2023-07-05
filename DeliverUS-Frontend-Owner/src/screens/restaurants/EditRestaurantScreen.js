@@ -275,7 +275,8 @@ export default function EditRestaurantScreen ({ navigation, route }) {
                 ]}
               >
                 <View style={styles.buttonContent}>
-                  <TextRegular textStyle={styles.buttonText}>Update Categories</TextRegular>
+                  <TextRegular textStyle={styles.buttonText}>
+                    Update Categories</TextRegular>
                 </View>
               </Pressable>
 

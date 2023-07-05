@@ -21,7 +21,7 @@ exports.indexRestaurant = async function (req, res) {
   }
 }
 
-exports.show = async function (req, res) {
+exports.show = async function (req, res) { // show -> id / index -> all
   // Only returns PUBLIC information of products
   try {
     const product = await Product.findByPk(req.params.productId, {
@@ -151,7 +151,7 @@ exports.highlight = async (req, res, next) => {
   try {
     const highlightedProductsCount = await Product.count({ where: { highlight: true } })
     if (highlightedProductsCount >= 5) {
-      const firstHighlightedProduct = await Product.findOne({
+      const firstHighlightedProduct = await Product.findOne({ // ¿Cuál fue el primer producto destacado como favorito?
         where: { highlight: true },
         order: [['createdAt', 'DESC']]
       })

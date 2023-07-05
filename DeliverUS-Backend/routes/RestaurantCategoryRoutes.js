@@ -8,7 +8,7 @@ module.exports = (options) => {
 
   app.route('/restaurantCategories')
     .get(RestaurantCategoryController.indexRestaurantCategory)
-    .post( // // Añadido para creación ventana 'CreateRestaurantCategoryScreen'
+    .post( // Añadido para creación ventana 'CreateRestaurantCategoryScreen'
       middlewares.isLoggedIn,
       middlewares.hasRole('owner'),
       RestaurantCategoryValidation.create,

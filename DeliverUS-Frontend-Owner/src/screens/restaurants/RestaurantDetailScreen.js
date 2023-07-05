@@ -98,7 +98,7 @@ export default function RestaurantDetailScreen ({ navigation, route }) {
         imageUri={item.image ? { uri: process.env.API_BASE_URL + '/' + item.image } : defaultProductImage}
         title={item.name}
       >
-        <TextRegular numberOfLines={2}>{item.description}</TextRegular>
+        <TextRegular>{item.description}</TextRegular>
         <TextSemiBold textStyle={styles.price}>{item.price.toFixed(2)}€</TextSemiBold>
 
         {<TextSemiBold style={{ marginTop: 10, fontWeight: 'bold' }}>Nutritional composition:</TextSemiBold>}
