@@ -94,7 +94,7 @@ exports.popular = async function (req, res) {
         {
           model: Restaurant,
           as: 'restaurant',
-          attributes: ['id', 'name', 'isEconomic', 'messageToFans', 'promoted', 'highlight', 'sortByPrice', 'discountCode', 'discount', 'description', 'address', 'postalCode', 'url', 'shippingCosts', 'averageServiceMinutes', 'email', 'phone', 'logo', 'heroImage', 'status', 'restaurantCategoryId'],
+          attributes: ['id', 'name', 'isEconomic', 'messageToFans', 'promoted', 'highlight', 'sortByPrice', 'description', 'address', 'postalCode', 'url', 'shippingCosts', 'averageServiceMinutes', 'email', 'phone', 'logo', 'heroImage', 'status', 'restaurantCategoryId'],
           include:
         {
           model: RestaurantCategory,

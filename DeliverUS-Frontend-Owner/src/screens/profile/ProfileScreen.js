@@ -151,7 +151,7 @@ export default function ProfileScreen () {
                     />
                     <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                     <MaterialCommunityIcons
-                        name={showPassword ? 'eye-off' : 'eye'}
+                        name={showPassword ? 'eye' : 'eye-off'}
                         style={{ marginLeft: 10 }}
                         size={24}
                       />

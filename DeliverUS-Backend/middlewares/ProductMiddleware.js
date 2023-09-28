@@ -27,5 +27,17 @@ module.exports = {
     } catch (err) {
       return res.status(404).send(err)
     }
+  },
+  checkRestaurantDiscount: async (req, res, next) => {
+    try {
+      const product = await Product.findByPk(req.params.productId, { include: { model: Restaurant, as: 'restaurant' } })
+      if (product.restaurant.discount > 0.0) {
+        return next()
+      } else {
+        return res.status(403).send('Not enough discount. This restaurant is not discounted')
+      }
+    } catch (err) {
+      return res.status(500).send(err)
+    }
   }
 }

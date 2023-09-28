@@ -65,6 +65,7 @@ export default function CreateRestaurantScreen ({ navigation, route }) { // Si e
     discount: yup
       .number()
       .nullable()
+      .positive()
       .min(1, 'Min 1')
       .max(99, 'Max 99'),
     promoted: yup

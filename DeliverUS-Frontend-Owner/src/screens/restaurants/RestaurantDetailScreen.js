@@ -96,7 +96,7 @@ export default function RestaurantDetailScreen ({ navigation, route }) {
     return (
       <ImageCard styles
         imageUri={item.image ? { uri: process.env.API_BASE_URL + '/' + item.image } : defaultProductImage}
-        title={item.name}
+        title={(item.name)}
       >
         <TextRegular>{item.description}</TextRegular>
         <TextSemiBold textStyle={styles.price}>{item.price.toFixed(2)}€</TextSemiBold>
@@ -152,7 +152,6 @@ export default function RestaurantDetailScreen ({ navigation, route }) {
         </View>
 
          <View style={styles.actionButtonsContainer}>
-
         <Pressable
           onPress={() => navigation.navigate('EditProductScreen', { id: item.id })
           }
@@ -420,5 +419,9 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     paddingHorizontal: 10,
     borderRadius: 10
+  },
+  priceDiscounted: {
+    marginLeft: 10,
+    color: GlobalStyles.brandPrimary
   }
 })
