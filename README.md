@@ -34,13 +34,35 @@ Realice todos los cambios necesarios en el proyecto de backend para implementar 
 
 Realice todos los cambios necesarios en el proyecto de frontend para implementar el nuevo requisito.
 
-### Examen A - Restaurantes económicos
-[economicRestaurants.pdf](https://github.com/pablobuza014/DeliverUS-OwnerALL/files/11939801/economicRestaurants.pdf)
 
-### Examen B - Promoción de restaurantes
-### Examen C - Promoción de productos
-### Examen D - Productos favoritos
-### Examen E - Descuentos en restaurantes.
-### Examen F - Creación de categorías de restaurantes.
-### Examen G - Ordenación de productos vía restaurantes.
-### Examen H - IMPROVEMENTS: Mensajes de ayuda aleatorios, visibilidad de contraseña y mensajes para los fans.
+
+### Examen 1 - Restaurantes económicos
+[IISSI2, Enunciado Examen 1 - Restaurantes económicos.pdf](https://github.com/pablobuza014/DeliverUS-OwnerALL/files/12744298/IISSI2.Enunciado.Examen.1.-.Restaurantes.economicos.pdf)
+
+### Examen 2 - Restaurantes con descuentos
+[IISSI2, Enunciado Examen 2 - Restaurantes con descuentos.pdf](https://github.com/pablobuza014/DeliverUS-OwnerALL/files/12744303/IISSI2.Enunciado.Examen.2.-.Restaurantes.con.descuentos.pdf)
+
+### Examen 3 - Restaurantes promocionados
+[IISSI2, Enunciado Examen 3 - Restaurantes promocionados.pdf](https://github.com/pablobuza014/DeliverUS-OwnerALL/files/12744304/IISSI2.Enunciado.Examen.3.-.Restaurantes.promocionados.pdf)
+
+### Examen 4 - Nutrientes saludables
+[IISSI2, Enunciado Examen 4 - Nutrientes.pdf](https://github.com/pablobuza014/DeliverUS-OwnerALL/files/12744305/IISSI2.Enunciado.Examen.4.-.Nutrientes.pdf)
+
+### Examen 5 - Categorías de restaurantes
+[IISSI2, Enunciado Examen 5 - Categorías de restaurantes.pdf](https://github.com/pablobuza014/DeliverUS-OwnerALL/files/12744306/IISSI2.Enunciado.Examen.5.-.Categorias.de.restaurantes.pdf)
+
+### Examen 6 - Ordenar productos de restaurantes por precio
+[IISSI2, Enunciado Examen 6 - Ordenar productos por precio.pdf](https://github.com/pablobuza014/DeliverUS-OwnerALL/files/12744307/IISSI2.Enunciado.Examen.6.-.Ordenar.productos.por.precio.pdf)
+
+### Examen 7 - Productos promocionados
+[IISSI2, Enunciado Examen 7 - Productos promocionados.pdf](https://github.com/pablobuza014/DeliverUS-OwnerALL/files/12744308/IISSI2.Enunciado.Examen.7.-.Productos.promocionados.pdf)
+
+### Examen 8 - Productos destacados
+[IISSI2, Enunciado Examen 8 - Productos destacados.pdf](https://github.com/pablobuza014/DeliverUS-OwnerALL/files/12744309/IISSI2.Enunciado.Examen.8.-.Productos.destacados.pdf)
+
+### Examen 9 - Mensaje para los fans
+[IISSI2, Enunciado Examen 9 - Mensaje para los fans.pdf](https://github.com/pablobuza014/DeliverUS-OwnerALL/files/12744310/IISSI2.Enunciado.Examen.9.-.Mensaje.para.los.fans.pdf)
+
+### Examen 10 - Mejoras de ecosistema
+[IISSI2, Enunciado Examen 10 - Mejoras de ecosistema.pdf](https://github.com/pablobuza014/DeliverUS-OwnerALL/files/12744311/IISSI2.Enunciado.Examen.10.-.Mejoras.de.ecosistema.pdf)
+
